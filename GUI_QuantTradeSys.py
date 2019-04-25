@@ -207,7 +207,7 @@ class Frame(wx.Frame):
         self.HBoxPanel.Hide(self.BackPanel)
         self.HBoxPanel.Replace(self.BackPanel,self.DispPanel)
         self.HBoxPanel.Show(self.DispPanel)
-        self.HBoxPanel.Remove(self.BackPanel) 
+        # self.HBoxPanel.Remove(self.BackPanel)
         self.SetSizer(self.HBoxPanel)  
         self.HBoxPanel.Layout()    
     
@@ -216,9 +216,9 @@ class Frame(wx.Frame):
         self.stockCode_Val = self.StNameCodedict[self.stockName_Val]
 
         dateVal = self.dpcStartTime.GetValue() 
-        self.stockSdate_Val = datetime.datetime(dateVal.Year,dateVal.Month+1,dateVal.Day) 
+        self.stockSdate_Val = datetime.datetime(dateVal.year,dateVal.month+1,int(dateVal.day))
         dateVal = self.dpcEndTime.GetValue() 
-        self.stockEdate_Val = datetime.datetime(dateVal.Year,dateVal.Month+1,dateVal.Day)    
+        self.stockEdate_Val = datetime.datetime(dateVal.year,dateVal.month+1,int(dateVal.day))
 
         self.reFlashFrame()
  
@@ -227,7 +227,7 @@ class Frame(wx.Frame):
         self.HBoxPanel.Hide(self.DispPanel)
         self.HBoxPanel.Replace(self.DispPanel,self.BackPanel) 
         self.HBoxPanel.Show(self.BackPanel)
-        self.HBoxPanel.Remove(self.DispPanel) 
+        # self.HBoxPanel.Remove(self.DispPanel) 
         self.SetSizer(self.HBoxPanel)  
         self.HBoxPanel.Layout()
 

@@ -19,6 +19,7 @@ class Excave_Indic_Base:
 
     def plot_Aver_Cross(self, stock_df):
         #显示均线金叉/死叉提示符
+        # print stock_df['Ma20']-stock_df['Ma60']
         list_diff = np.sign(stock_df['Ma20']-stock_df['Ma60'])
         list_signal = np.sign(list_diff-list_diff.shift(1))
         #print "list_diff",list_diff   

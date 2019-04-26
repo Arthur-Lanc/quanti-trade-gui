@@ -63,14 +63,18 @@ class Excave_Indic_Base:
     def plot_Ndays_Break(self, stock_df):
         N1 = 42
         N2 = 30
-        stock_df['N1_High'] = pd.rolling_max(stock_df.High,window=N1)#计算最近N1个交易日最高价
+        # stock_df['N1_High'] = pd.rolling_max(stock_df.High,window=N1)#计算最近N1个交易日最高价
+        stock_df['N1_High'] = stock_df.High.rolling(window=N1).max()
         stock_df['N1_High'] = stock_df['N1_High'].shift(1)
-        expan_max = pd.expanding_max(stock_df.Close)
+        # expan_max = pd.expanding_max(stock_df.Close)
+        expan_max = stock_df.Close.expanding().max()
         stock_df['N1_High'].fillna(value=expan_max,inplace=True)#目前出现过的最大值填充前N1个nan
 
-        stock_df['N2_Low'] = pd.rolling_min(stock_df.Low,window=N2)#计算最近N2个交易日最低价   
+        # stock_df['N2_Low'] = pd.rolling_min(stock_df.Low,window=N2)#计算最近N2个交易日最低价
+        stock_df['N2_Low'] = stock_df.Low.rolling(window=N2).min()
         stock_df['N2_Low'] = stock_df['N2_Low'].shift(1) 
-        expan_min = pd.expanding_min(stock_df.Close)
+        # expan_min = pd.expanding_min(stock_df.Close)
+        expan_min = stock_df.Close.expanding().min()
         stock_df['N2_Low'].fillna(value=expan_min,inplace=True)#目前出现过的最小值填充前N2个nan        
         
         dispCont_List = []

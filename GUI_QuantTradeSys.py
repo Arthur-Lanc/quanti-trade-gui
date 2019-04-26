@@ -227,7 +227,7 @@ class Frame(wx.Frame):
         self.HBoxPanel.Hide(self.DispPanel)
         self.HBoxPanel.Replace(self.DispPanel,self.BackPanel) 
         self.HBoxPanel.Show(self.BackPanel)
-        # self.HBoxPanel.Remove(self.DispPanel) 
+        # self.HBoxPanel.Remove(self.DispPanel)
         self.SetSizer(self.HBoxPanel)  
         self.HBoxPanel.Layout()
 

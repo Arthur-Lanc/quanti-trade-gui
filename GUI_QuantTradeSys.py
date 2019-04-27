@@ -66,7 +66,8 @@ class Frame(wx.Frame):
         
         paraInput_Box = wx.StaticBox(self.ParaPanel, -1, u'参数输入') 
         paraInput_Sizer = wx.StaticBoxSizer(paraInput_Box, wx.VERTICAL)    
-        self.StNameCodedict = {u"开山股份":"300257.SZ",u"浙大网新":"600797.SS",u"水晶光电":"002273.SZ", u"高鸿股份":"000851.SZ"}
+        self.StNameCodedict = {u"开山股份":"300257.SZ",u"浙大网新":"600797.SS",u"水晶光电":"002273.SZ", u"高鸿股份":"000851.SZ", u"华东医药":"000963.SZ", u"格力电器":"000651.SZ", u"沃森生物":"300142.SZ",
+                               u"视觉中国":"000681.SZ",u"万科A":"000002.SZ"}
         
         #初始化股票代码变量
         self.stockName_Val = u"开山股份"
@@ -104,7 +105,7 @@ class Frame(wx.Frame):
         paraInput_Sizer.Add(strate_Text, 0, wx.EXPAND|wx.ALL|wx.CENTER, 2)
         paraInput_Sizer.Add(self.pickstrate_CMBO, 0, wx.EXPAND|wx.ALL|wx.CENTER, 2)
         
-        RadioList = ["不显示","跳空缺口", "金叉/死叉", "N日突破"] 
+        RadioList = ["不显示","跳空缺口", "金叉/死叉", "N日突破"]
         self.StratInputBox = wx.RadioBox(self.ParaPanel, -1, label=u'指标提示', choices=RadioList,majorDimension = 4, style = wx.RA_SPECIFY_ROWS) 
         self.StratInputBox.Bind(wx.EVT_RADIOBOX,self.OnRadioBox_Indicator) 
         #初始化指标变量
@@ -198,7 +199,7 @@ class Frame(wx.Frame):
         self.ProcessLoop()
         self.BackPanel.update_subgraph()#必须刷新才能显示下一幅图 
 
-    def reFlashFrame(self): 
+    def reFlashFrame(self):
         self.DispPanel.clear_subgraph()#必须清理图形才能显示下一幅图
         self.ProcessStock()
         self.DispPanel.update_subgraph()#必须刷新才能显示下一幅图 

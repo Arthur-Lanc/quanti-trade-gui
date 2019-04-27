@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import pandas_datareader.data as web
 import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure  
 import matplotlib.dates as mdates

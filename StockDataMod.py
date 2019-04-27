@@ -13,6 +13,7 @@ import talib
 def GetStockDatApi(stockName=None,stockTimeS=None,stockTimeE=None):
     
     path = 'D:\data\StockData'
+    path = '/Users/arthurlance/data/programPY/GUI_Inter_StoMPL/StockData'
     
     str_stockTimeS = stockTimeS.strftime('%Y-%m-%d')
     str_stockTimeE = stockTimeE.strftime('%Y-%m-%d')
